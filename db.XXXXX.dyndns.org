@@ -1,0 +1,30 @@
+;## ;## NSD authoritative only DNS
+;## XXXXX.dyndns.org.zone .:. https://calomel.org and http://www.zytrax.com
+;## FORWARD Zone  -  XXXXX.dyndns.org.forward
+
+$TTL 10                        ; default time to live
+$ORIGIN XXXXX.dyndns.org.    ; default zone domain
+
+@  10  IN SOA  ah110t.XXXXX.dyndns.org.  admin.XXXXX.dyndns.org. (
+                   2011010203  ; serial number
+                   10          ; Refresh
+                   10          ; Retry
+                   10          ; Expire
+                   10          ; Min TTL
+                   )
+
+           IN  NS       ah110t.XXXXX.dyndns.org.
+           IN  MX   10    mail.XXXXX.dyndns.org.
+
+@                          IN     A      192.168.2.9
+ah110t                     IN     A      192.168.2.9
+www                        IN     A      192.168.2.9
+router.XXXXX.dyndns.org.   IN     A      192.168.14.1
+zotacu                     IN     A      192.168.14.20
+pve                        IN     A      192.168.14.70
+pca                        IN     A      192.168.14.251
+mail                       IN     A      192.168.14.60
+ldap                       IN     A      192.168.14.80
+text1                      IN     TXT    "Testing...1...2...3"
+guest                      IN     CNAME  zotacu
+
